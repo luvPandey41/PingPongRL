@@ -63,6 +63,15 @@
           solref="0.01 0.2"
           solimp="0.95 0.99 0.001"/>
 
+    <!-- Green Floor -->
+    <geom name="pingpong_floor"
+          type="box"
+          pos="0 .2 0"
+          size=".5 .5 .02"
+          rgba="0.2 0.8 0.3 1"
+          solref="0.01 0.2"
+          solimp="0.95 0.99 0.001"/>
+
     <!-- ORANGE PING PONG BALL -->
     <body name="pingpong_ball"
           pos="0.437 0.35 0.04">
@@ -74,7 +83,7 @@
             size="0.02"
             mass="0.0027"
             rgba="1 0.5 0 1"
-            solref="0.01 0.2"
+            solref="0.01 0.1"
             solimp="0.95 0.99 0.001"/>
 
     </body>

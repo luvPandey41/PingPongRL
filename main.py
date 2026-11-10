@@ -2,6 +2,7 @@
 import mujoco
 import mujoco.viewer
 import time
+import numpy as np
 
 # Path to the SO-ARM100 robot model
 model_path = "mujoco_menagerie/trs_so_arm100/pingpong_scene.xml"
@@ -29,7 +30,7 @@ mujoco.mj_forward(model, data)
 # Print each ball collision once so the paddle and wall hits are easy to verify.
 ball_geom = model.geom("ball_geom").id
 reported_contacts = set()
-playback_speed = 0.1  # Run the simulation at 10% real time so the shot is visible.
+playback_speed = .1 # Run the simulation at 10% real time so the shot is visible.
 
 with mujoco.viewer.launch_passive(model, data) as viewer:
     while viewer.is_running():
@@ -50,3 +51,17 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
         step_duration = model.opt.timestep / playback_speed
         time.sleep(max(0.0, step_duration - (time.time() - step_start)))
 
+
+def obs_parts(self):
+    d = self.data
+
+    #the information that we need in the first layer of the neural network (the observations neccesary)
+
+    return {
+        #ball position (x,y,z), ball velocity (x,y,z), rotation, ptich, elbow, wrist_pitch, wrist_roll, jaw, paddle positoin (x,y,z)
+        
+        
+    }
+
+def make_obs(self):
+    p = self.obs_parts()
